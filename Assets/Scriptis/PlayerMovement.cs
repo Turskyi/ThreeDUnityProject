@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] Transform groundCheck;
     [SerializeField] LayerMask ground;
+
+    [SerializeField] AudioSource jumpSound;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         rigidbody.velocity = new Vector3(rigidbody.velocity.x, jumpForce, 0);
+        jumpSound.Play();
     }
 
     private void OnCollisionEnter(Collision collision)
