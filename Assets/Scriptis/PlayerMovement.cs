@@ -34,9 +34,23 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            rigidbody.velocity = new Vector3(rigidbody.velocity.x, jumpForce, 0);
+            Jump();
         }
 
+    }
+
+    private void Jump()
+    {
+        rigidbody.velocity = new Vector3(rigidbody.velocity.x, jumpForce, 0);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy Head"))
+        {
+            Destroy(collision.transform.parent.gameObject);
+            Jump();
+        }
     }
 
     bool IsGrounded()
