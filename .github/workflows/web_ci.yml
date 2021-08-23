@@ -9,11 +9,12 @@ jobs:
     name: Deploy game to Firebase Hosting
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@main
       - name: Deploy to Firebase hosting
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting --public build
-      - run: firebase init
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           PROJECT_ID: unitythreedgame
