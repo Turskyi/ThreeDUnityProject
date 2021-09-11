@@ -1,5 +1,5 @@
 # ThreeDUnityProject
-Simple 3D Unity project
+Simple 3D Unity pet project to support online web game [unitythreedgame.web.app](https://unitythreedgame.web.app)
 
 ## PROJECT SPECIFICATION
 
